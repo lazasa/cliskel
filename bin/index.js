@@ -3,7 +3,7 @@
 const arg = require('arg')
 const getConfig = require('../src/config/config-mgr')
 const start = require('../src/commands/start')
-const log = require('../src/utils/log')
+const log = require('../src/utils/log')('bin')
 
 try {
 	const args = arg({
@@ -16,14 +16,15 @@ try {
 		start(config)
 	}
 
+	log.debug('Received args', args)
 
 } catch (e) {
-	log.error('Error!', e.message, '\n')
+	log.warning('Error!', e.message, '\n')
 	usage()
 }
 
 function usage() {
-	console.log(`cli [CMD]
+	log.warning(`cli [CMD]
 	--start \tStarts the app
 	--build \tBuilds the app
 		`)

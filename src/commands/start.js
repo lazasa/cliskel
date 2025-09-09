@@ -1,5 +1,5 @@
-const log = require('../utils/log')
+const log = require('../utils/log')('commands:start')
 
 module.exports = function start(config) {
-	log.info('Starting the app ')
+	log.highlight('Starting the app ')
 }
