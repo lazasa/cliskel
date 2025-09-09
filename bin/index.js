@@ -11,9 +11,11 @@ try {
     '--build': Boolean
   })
 
+  // Example argument handler
   if (args['--start']) {
-    const config = getConfig()
-    start(config)
+    const config = getConfig() // configuration object
+    log.debug('Starting with config: ', JSON.stringify(config, null, 2))
+    start()
   }
 
   log.debug('Received args', args)
